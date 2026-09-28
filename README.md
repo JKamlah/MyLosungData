@@ -1,0 +1,2 @@
+# MyLosungData
+Datensätze für MyLosungApp
