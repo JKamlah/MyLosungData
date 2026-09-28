@@ -1,0 +1,9 @@
+{
+  "abbr": "NPU",
+  "name": "Новий Переклад Українською",
+  "lang": "Ukrainian",
+  "locale": "uk",
+  "ot": true,
+  "nt": true,
+  "wsystem": "LTR"
+}

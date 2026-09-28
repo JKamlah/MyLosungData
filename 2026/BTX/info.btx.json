@@ -1,0 +1,9 @@
+{
+  "abbr": "BTX",
+  "name": "La Biblia Textual",
+  "lang": "Spanish",
+  "locale": "es",
+  "ot": true,
+  "nt": true,
+  "wsystem": "LTR"
+}

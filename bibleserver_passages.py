@@ -38,66 +38,66 @@ import requests
 
 # 60 official Bibleserver translations as defined on https://www.bibleserver.com/webmasters
 BIBLES = [
-    {"abbr": "ESV", "name": "English Standard Version", "lang": "English", "locale": "en", "ot": True, "nt": True},
-    {"abbr": "NIV", "name": "New International Version", "lang": "English", "locale": "en", "ot": True, "nt": True},
-    {"abbr": "NIRV", "name": "New International Reader’s Version", "lang": "English", "locale": "en", "ot": True, "nt": True},
-    {"abbr": "KJV", "name": "King James Version", "lang": "English", "locale": "en", "ot": True, "nt": True},
-    {"abbr": "LUT", "name": "Lutherbibel 2017", "lang": "German", "locale": "de", "ot": True, "nt": True},
-    {"abbr": "ELB", "name": "Elberfelder Bibel", "lang": "German", "locale": "de", "ot": True, "nt": True},
-    {"abbr": "HFA", "name": "Hoffnung für alle", "lang": "German", "locale": "de", "ot": True, "nt": True},
-    {"abbr": "SLT", "name": "Schlachter 2000", "lang": "German", "locale": "de", "ot": True, "nt": True},
-    {"abbr": "GNB", "name": "Gute Nachricht Bibel 2018", "lang": "German", "locale": "de", "ot": True, "nt": True},
-    {"abbr": "ZB", "name": "Zürcher Bibel", "lang": "German", "locale": "de", "ot": True, "nt": True},
-    {"abbr": "NGÜ", "name": "Neue Genfer Übersetzung", "lang": "German", "locale": "de", "ot": True, "nt": True},
-    {"abbr": "EU", "name": "Einheitsübersetzung 2016", "lang": "German", "locale": "de", "ot": True, "nt": True},
-    {"abbr": "NLB", "name": "Neues Leben. Die Bibel", "lang": "German", "locale": "de", "ot": True, "nt": True},
-    {"abbr": "NeÜ", "name": "Neue evangelistische Übersetzung", "lang": "German", "locale": "de", "ot": True, "nt": True},
-    {"abbr": "MENG", "name": "Menge Bibel", "lang": "German", "locale": "de", "ot": True, "nt": True},
-    {"abbr": "DBU", "name": "Das Buch", "lang": "German", "locale": "de", "ot": True, "nt": True},
-    {"abbr": "VXB", "name": "VOLXBIBEL", "lang": "German", "locale": "de", "ot": True, "nt": True},
-    {"abbr": "BDS", "name": "La Bible du Semeur", "lang": "French", "locale": "fr", "ot": True, "nt": True},
-    {"abbr": "PEV", "name": "La Parola è Vita", "lang": "Italian", "locale": "it", "ot": True, "nt": True},
-    {"abbr": "S21", "name": "Segond 21", "lang": "French", "locale": "fr", "ot": True, "nt": True},
-    {"abbr": "LSG", "name": "Louis Segond 1910", "lang": "French", "locale": "fr", "ot": True, "nt": True},
-    {"abbr": "NRS", "name": "Nuova Riveduta 2006", "lang": "Italian", "locale": "it", "ot": True, "nt": True},
-    {"abbr": "HET", "name": "Het Boek", "lang": "Dutch", "locale": "nl", "ot": True, "nt": True},
-    {"abbr": "NVIC", "name": "Nueva Versión Internacional (Castellano)", "lang": "Spanish", "locale": "es", "ot": True, "nt": True},
-    {"abbr": "OL", "name": "O Livro", "lang": "Portuguese", "locale": "pt", "ot": True, "nt": True},
-    {"abbr": "NVIP", "name": "Nova Versão Internacional", "lang": "Portuguese", "locale": "pt", "ot": True, "nt": True},
-    {"abbr": "NVI", "name": "Nueva Versión Internacional", "lang": "Spanish", "locale": "es", "ot": True, "nt": True},
-    {"abbr": "NBV", "name": "Nueva Biblia Viva", "lang": "Spanish", "locale": "es", "ot": True, "nt": True},
-    {"abbr": "BTX", "name": "La Biblia Textual", "lang": "Spanish", "locale": "es", "ot": True, "nt": True},
-    {"abbr": "NOR", "name": "En Levende Bok", "lang": "Norwegian", "locale": "no", "ot": True, "nt": True},
-    {"abbr": "BSV", "name": "Nya Levande Bibeln", "lang": "Swedish", "locale": "sv", "ot": True, "nt": True},
-    {"abbr": "NUB", "name": "nuBibeln", "lang": "Swedish", "locale": "sv", "ot": True, "nt": True},
-    {"abbr": "BPH", "name": "Bibelen på hverdagsdansk", "lang": "Danish", "locale": "da", "ot": True, "nt": True},
-    {"abbr": "PSZ", "name": "Słowo Życia", "lang": "Polish", "locale": "pl", "ot": True, "nt": True},
-    {"abbr": "SNPD4", "name": "Pismo Święte Starego i Nowego Przymierza (dosłowny)", "lang": "Polish", "locale": "pl", "ot": True, "nt": True},
-    {"abbr": "SNP", "name": "Pismo Święte Starego i Nowego Przymierza (literacki)", "lang": "Polish", "locale": "pl", "ot": True, "nt": True},
-    {"abbr": "CEP", "name": "Český ekumenický překlad", "lang": "Czech", "locale": "cs", "ot": True, "nt": True},
-    {"abbr": "SNC", "name": "Slovo na cestu", "lang": "Czech", "locale": "cs", "ot": True, "nt": True},
-    {"abbr": "B21", "name": "Bible, překlad 21. století", "lang": "Czech", "locale": "cs", "ot": True, "nt": True},
-    {"abbr": "BKR", "name": "Bible Kralická", "lang": "Czech", "locale": "cs", "ot": True, "nt": True},
-    {"abbr": "NPK", "name": "Nádej pre kazdého", "lang": "Slovak", "locale": "sk", "ot": True, "nt": True},
-    {"abbr": "KAR", "name": "IBS-fordítás (Új Károli)", "lang": "Hungarian", "locale": "hu", "ot": True, "nt": False},  # OT only
-    {"abbr": "EIV", "name": "Újszövetség: élet, igazság és világosság", "lang": "Hungarian", "locale": "hu", "ot": False, "nt": True},  # NT only
-    {"abbr": "NTR", "name": "Noua Traducere Românească", "lang": "Romanian", "locale": "ro", "ot": True, "nt": True},
-    {"abbr": "BGV", "name": "Верен", "lang": "Bulgarian", "locale": "bg", "ot": True, "nt": True},
-    {"abbr": "CBT", "name": "Съвременен български превод", "lang": "Bulgarian", "locale": "bg", "ot": True, "nt": True},
-    {"abbr": "BPB", "name": "Библия, ревизирано издание", "lang": "Bulgarian", "locale": "bg", "ot": True, "nt": True},
-    {"abbr": "BOB", "name": "Библия, синодално издание", "lang": "Bulgarian", "locale": "bg", "ot": True, "nt": True},
-    {"abbr": "CKK", "name": "Knjiga O Kristu", "lang": "Croatian", "locale": "hr", "ot": True, "nt": True},
-    {"abbr": "NRT", "name": "Новый Русский Перевод", "lang": "Russian", "locale": "ru", "ot": True, "nt": True},
-    {"abbr": "CARS", "name": "Священное Писание, Восточный перевод", "lang": "Russian", "locale": "ru", "ot": True, "nt": True},
-    {"abbr": "RST", "name": "Синодальный перевод", "lang": "Russian", "locale": "ru", "ot": True, "nt": True},
-    {"abbr": "TR", "name": "Kutsal Kitap Yeni Çeviri", "lang": "Turkish", "locale": "tr", "ot": True, "nt": True},
-    {"abbr": "NAV", "name": "الكتاب المقدس", "lang": "Arabic", "locale": "ar", "ot": True, "nt": True},
-    {"abbr": "PCB", "name": "کتاب مقدس، ترجمۀ معاصر", "lang": "Persian", "locale": "fa", "ot": True, "nt": True},
-    {"abbr": "CUVS", "name": "中文和合本（简体）", "lang": "Chinese (Simplified)", "locale": "zh_CN", "ot": True, "nt": True},
-    {"abbr": "CCBT", "name": "聖經當代譯本修訂版", "lang": "Chinese (Simplified)", "locale": "zh_CN", "ot": True, "nt": True},
-    {"abbr": "CCB", "name": "圣经当代译本修订版", "lang": "Chinese (Simplified)", "locale": "zh_CN", "ot": True, "nt": True},
-    {"abbr": "NPU", "name": "Новий Переклад Українською", "lang": "Ukrainian", "locale": "uk", "ot": True, "nt": True},
-    {"abbr": "UTT", "name": "Українська Біблія LXX УБТ", "lang": "Ukrainian", "locale": "uk", "ot": True, "nt": True},
+    {"abbr": "ESV", "name": "English Standard Version", "lang": "English", "locale": "en", "ot": True, "nt": True, "wsystem": "LTR"},
+    {"abbr": "NIV", "name": "New International Version", "lang": "English", "locale": "en", "ot": True, "nt": True, "wsystem": "LTR"},
+    {"abbr": "NIRV", "name": "New International Reader’s Version", "lang": "English", "locale": "en", "ot": True, "nt": True, "wsystem": "LTR"},
+    {"abbr": "KJV", "name": "King James Version", "lang": "English", "locale": "en", "ot": True, "nt": True, "wsystem": "LTR"},
+    {"abbr": "LUT", "name": "Lutherbibel 2017", "lang": "German", "locale": "de", "ot": True, "nt": True, "wsystem": "LTR"},
+    {"abbr": "ELB", "name": "Elberfelder Bibel", "lang": "German", "locale": "de", "ot": True, "nt": True, "wsystem": "LTR"},
+    {"abbr": "HFA", "name": "Hoffnung für alle", "lang": "German", "locale": "de", "ot": True, "nt": True, "wsystem": "LTR"},
+    {"abbr": "SLT", "name": "Schlachter 2000", "lang": "German", "locale": "de", "ot": True, "nt": True, "wsystem": "LTR"},
+    {"abbr": "GNB", "name": "Gute Nachricht Bibel 2018", "lang": "German", "locale": "de", "ot": True, "nt": True, "wsystem": "LTR"},
+    {"abbr": "ZB", "name": "Zürcher Bibel", "lang": "German", "locale": "de", "ot": True, "nt": True, "wsystem": "LTR"},
+    {"abbr": "NGÜ", "name": "Neue Genfer Übersetzung", "lang": "German", "locale": "de", "ot": True, "nt": True, "wsystem": "LTR"},
+    {"abbr": "EU", "name": "Einheitsübersetzung 2016", "lang": "German", "locale": "de", "ot": True, "nt": True, "wsystem": "LTR"},
+    {"abbr": "NLB", "name": "Neues Leben. Die Bibel", "lang": "German", "locale": "de", "ot": True, "nt": True, "wsystem": "LTR"},
+    {"abbr": "NeÜ", "name": "Neue evangelistische Übersetzung", "lang": "German", "locale": "de", "ot": True, "nt": True, "wsystem": "LTR"},
+    {"abbr": "MENG", "name": "Menge Bibel", "lang": "German", "locale": "de", "ot": True, "nt": True, "wsystem": "LTR"},
+    {"abbr": "DBU", "name": "Das Buch", "lang": "German", "locale": "de", "ot": True, "nt": True, "wsystem": "LTR"},
+    {"abbr": "VXB", "name": "VOLXBIBEL", "lang": "German", "locale": "de", "ot": True, "nt": True, "wsystem": "LTR"},
+    {"abbr": "BDS", "name": "La Bible du Semeur", "lang": "French", "locale": "fr", "ot": True, "nt": True, "wsystem": "LTR"},
+    {"abbr": "PEV", "name": "La Parola è Vita", "lang": "Italian", "locale": "it", "ot": True, "nt": True, "wsystem": "LTR"},
+    {"abbr": "S21", "name": "Segond 21", "lang": "French", "locale": "fr", "ot": True, "nt": True, "wsystem": "LTR"},
+    {"abbr": "LSG", "name": "Louis Segond 1910", "lang": "French", "locale": "fr", "ot": True, "nt": True, "wsystem": "LTR"},
+    {"abbr": "NRS", "name": "Nuova Riveduta 2006", "lang": "Italian", "locale": "it", "ot": True, "nt": True, "wsystem": "LTR"},
+    {"abbr": "HET", "name": "Het Boek", "lang": "Dutch", "locale": "nl", "ot": True, "nt": True, "wsystem": "LTR"},
+    {"abbr": "NVIC", "name": "Nueva Versión Internacional (Castellano)", "lang": "Spanish", "locale": "es", "ot": True, "nt": True, "wsystem": "LTR"},
+    {"abbr": "OL", "name": "O Livro", "lang": "Portuguese", "locale": "pt", "ot": True, "nt": True, "wsystem": "LTR"},
+    {"abbr": "NVIP", "name": "Nova Versão Internacional", "lang": "Portuguese", "locale": "pt", "ot": True, "nt": True, "wsystem": "LTR"},
+    {"abbr": "NVI", "name": "Nueva Versión Internacional", "lang": "Spanish", "locale": "es", "ot": True, "nt": True, "wsystem": "LTR"},
+    {"abbr": "NBV", "name": "Nueva Biblia Viva", "lang": "Spanish", "locale": "es", "ot": True, "nt": True, "wsystem": "LTR"},
+    {"abbr": "BTX", "name": "La Biblia Textual", "lang": "Spanish", "locale": "es", "ot": True, "nt": True, "wsystem": "LTR"},
+    {"abbr": "NOR", "name": "En Levende Bok", "lang": "Norwegian", "locale": "no", "ot": True, "nt": True, "wsystem": "LTR"},
+    {"abbr": "BSV", "name": "Nya Levande Bibeln", "lang": "Swedish", "locale": "sv", "ot": True, "nt": True, "wsystem": "LTR"},
+    {"abbr": "NUB", "name": "nuBibeln", "lang": "Swedish", "locale": "sv", "ot": True, "nt": True, "wsystem": "LTR"},
+    {"abbr": "BPH", "name": "Bibelen på hverdagsdansk", "lang": "Danish", "locale": "da", "ot": True, "nt": True, "wsystem": "LTR"},
+    {"abbr": "PSZ", "name": "Słowo Życia", "lang": "Polish", "locale": "pl", "ot": True, "nt": True, "wsystem": "LTR"},
+    {"abbr": "SNPD4", "name": "Pismo Święte Starego i Nowego Przymierza (dosłowny)", "lang": "Polish", "locale": "pl", "ot": True, "nt": True, "wsystem": "LTR"},
+    {"abbr": "SNP", "name": "Pismo Święte Starego i Nowego Przymierza (literacki)", "lang": "Polish", "locale": "pl", "ot": True, "nt": True, "wsystem": "LTR"},
+    {"abbr": "CEP", "name": "Český ekumenický překlad", "lang": "Czech", "locale": "cs", "ot": True, "nt": True, "wsystem": "LTR"},
+    {"abbr": "SNC", "name": "Slovo na cestu", "lang": "Czech", "locale": "cs", "ot": True, "nt": True, "wsystem": "LTR"},
+    {"abbr": "B21", "name": "Bible, překlad 21. století", "lang": "Czech", "locale": "cs", "ot": True, "nt": True, "wsystem": "LTR"},
+    {"abbr": "BKR", "name": "Bible Kralická", "lang": "Czech", "locale": "cs", "ot": True, "nt": True, "wsystem": "LTR"},
+    {"abbr": "NPK", "name": "Nádej pre kazdého", "lang": "Slovak", "locale": "sk", "ot": True, "nt": True, "wsystem": "LTR"},
+    {"abbr": "KAR", "name": "IBS-fordítás (Új Károli)", "lang": "Hungarian", "locale": "hu", "ot": True, "nt": False, "wsystem": "LTR"},  # OT only
+    {"abbr": "EIV", "name": "Újszövetség: élet, igazság és világosság", "lang": "Hungarian", "locale": "hu", "ot": False, "nt": True, "wsystem": "LTR"},  # NT only
+    {"abbr": "NTR", "name": "Noua Traducere Românească", "lang": "Romanian", "locale": "ro", "ot": True, "nt": True, "wsystem": "LTR"},
+    {"abbr": "BGV", "name": "Верен", "lang": "Bulgarian", "locale": "bg", "ot": True, "nt": True, "wsystem": "LTR"},
+    {"abbr": "CBT", "name": "Съвременен български превод", "lang": "Bulgarian", "locale": "bg", "ot": True, "nt": True, "wsystem": "LTR"},
+    {"abbr": "BPB", "name": "Библия, ревизирано издание", "lang": "Bulgarian", "locale": "bg", "ot": True, "nt": True, "wsystem": "LTR"},
+    {"abbr": "BOB", "name": "Библия, синодално издание", "lang": "Bulgarian", "locale": "bg", "ot": True, "nt": True, "wsystem": "LTR"},
+    {"abbr": "CKK", "name": "Knjiga O Kristu", "lang": "Croatian", "locale": "hr", "ot": True, "nt": True, "wsystem": "LTR"},
+    {"abbr": "NRT", "name": "Новый Русский Перевод", "lang": "Russian", "locale": "ru", "ot": True, "nt": True, "wsystem": "LTR"},
+    {"abbr": "CARS", "name": "Священное Писание, Восточный перевод", "lang": "Russian", "locale": "ru", "ot": True, "nt": True, "wsystem": "LTR"},
+    {"abbr": "RST", "name": "Синодальный перевод", "lang": "Russian", "locale": "ru", "ot": True, "nt": True, "wsystem": "LTR"},
+    {"abbr": "TR", "name": "Kutsal Kitap Yeni Çeviri", "lang": "Turkish", "locale": "tr", "ot": True, "nt": True, "wsystem": "LTR"},
+    {"abbr": "NAV", "name": "الكتاب المقدس", "lang": "Arabic", "locale": "ar", "ot": True, "nt": True, "wsystem": "RTL"},
+    {"abbr": "PCB", "name": "کتاب مقدس، ترجمۀ معاصر", "lang": "Persian", "locale": "fa", "ot": True, "nt": True, "wsystem": "RTL"},
+    {"abbr": "CUVS", "name": "中文和合本（简体）", "lang": "Chinese (Simplified)", "locale": "zh_CN", "ot": True, "nt": True, "wsystem": "LTR"},
+    {"abbr": "CCBT", "name": "聖經當代譯本修訂版", "lang": "Chinese (Simplified)", "locale": "zh_CN", "ot": True, "nt": True, "wsystem": "LTR"},
+    {"abbr": "CCB", "name": "圣经当代译本修订版", "lang": "Chinese (Simplified)", "locale": "zh_CN", "ot": True, "nt": True, "wsystem": "LTR"},
+    {"abbr": "NPU", "name": "Новий Переклад Українською", "lang": "Ukrainian", "locale": "uk", "ot": True, "nt": True, "wsystem": "LTR"},
+    {"abbr": "UTT", "name": "Українська Біблія LXX УБТ", "lang": "Ukrainian", "locale": "uk", "ot": True, "nt": True, "wsystem": "LTR"},
 ]
 
 BIBLES_BY_ABBR = {b["abbr"]: b for b in BIBLES}
@@ -379,17 +379,32 @@ def fetch_verse_text_from_bibleserver(translation: str, url_passage: str, cache_
     return combined
 
 
+def write_translation_info(year_dir: str, bible_info: dict):
+    """
+    Writes info.<abbr>.json into the translation folder (e.g. 2026/LUT/info.lut.json).
+    """
+    abbr = bible_info["abbr"]
+    trl_dir = os.path.join(year_dir, abbr)
+    os.makedirs(trl_dir, exist_ok=True)
+    info_path = os.path.join(trl_dir, f"info.{abbr.lower()}.json")
+    with open(info_path, "w", encoding="utf-8") as f:
+        json.dump(bible_info, f, ensure_ascii=False, indent=2)
+
+
 def generate_translation_xml(year_dir: str, year: str, trl_code: str, days_data: list, cache_dir: str, max_workers: int = 8):
     """
     Generates <year>/<Übersetzung>/text/Losungen_<year>.<übersetzung>.xml for the specified translation.
     """
-    if trl_code.upper() == "LUT":
-        print(f"Skipping LUT: Ground truth file in '{year_dir}/LUT/text/' is protected and must not be overwritten.")
-        return
-
     b_info = BIBLES_BY_ABBR.get(trl_code)
     if not b_info:
         print(f"Error: Translation '{trl_code}' is not in the list of 60 translations.", file=sys.stderr)
+        return
+
+    # Always write info.<abbr>.json into translation folder (even for LUT)
+    write_translation_info(year_dir, b_info)
+
+    if trl_code.upper() == "LUT":
+        print(f"Skipping LUT: Ground truth file in '{year_dir}/LUT/text/' is protected and must not be overwritten.")
         return
 
     out_text_dir = os.path.join(year_dir, trl_code, "text")
@@ -573,6 +588,10 @@ def process_losungen_bibleserver(year: str, base_dir: str = None):
             f.write(f"  - **ESV:** [{esv_lt.get('passage')}]({esv_lt.get('link')}) | [LUT-Vergleich]({esv_lt.get('compare_lut_link')})\n")
             f.write(f"  - **KJV:** [{kjv_lt.get('passage')}]({kjv_lt.get('link')}) | [LUT-Vergleich]({kjv_lt.get('compare_lut_link')})\n\n")
     print(f"Wrote Markdown sample overview: {out_md}")
+
+    # Write info.<abbr>.json into each translation's folder (e.g. 2026/LUT/info.lut.json)
+    for b_info in BIBLES:
+        write_translation_info(year_dir, b_info)
 
     return days_data
 

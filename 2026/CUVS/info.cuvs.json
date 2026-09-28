@@ -1,0 +1,9 @@
+{
+  "abbr": "CUVS",
+  "name": "中文和合本（简体）",
+  "lang": "Chinese (Simplified)",
+  "locale": "zh_CN",
+  "ot": true,
+  "nt": true,
+  "wsystem": "LTR"
+}

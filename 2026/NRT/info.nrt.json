@@ -1,0 +1,9 @@
+{
+  "abbr": "NRT",
+  "name": "Новый Русский Перевод",
+  "lang": "Russian",
+  "locale": "ru",
+  "ot": true,
+  "nt": true,
+  "wsystem": "LTR"
+}

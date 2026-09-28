@@ -1,0 +1,9 @@
+{
+  "abbr": "NUB",
+  "name": "nuBibeln",
+  "lang": "Swedish",
+  "locale": "sv",
+  "ot": true,
+  "nt": true,
+  "wsystem": "LTR"
+}

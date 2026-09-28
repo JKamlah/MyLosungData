@@ -1,0 +1,9 @@
+{
+  "abbr": "RST",
+  "name": "Синодальный перевод",
+  "lang": "Russian",
+  "locale": "ru",
+  "ot": true,
+  "nt": true,
+  "wsystem": "LTR"
+}

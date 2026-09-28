@@ -1,0 +1,9 @@
+{
+  "abbr": "LUT",
+  "name": "Lutherbibel 2017",
+  "lang": "German",
+  "locale": "de",
+  "ot": true,
+  "nt": true,
+  "wsystem": "LTR"
+}
